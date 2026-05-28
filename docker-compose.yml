@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: pgfinder-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - pgfinder-net
+
+  backend:
+    build: ./backend
+    container_name: pgfinder-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/pgfinder
+      - JWT_SECRET=pgfinder_secret_change_in_production
+      - NODE_ENV=production
+    depends_on:
+      - mongodb
+    networks:
+      - pgfinder-net
+
+  frontend:
+    build: ./frontend
+    container_name: pgfinder-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+    depends_on:
+      - backend
+    networks:
+      - pgfinder-net
+
+volumes:
+  mongo_data:
+
+networks:
+  pgfinder-net:
+    driver: bridge

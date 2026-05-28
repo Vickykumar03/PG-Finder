@@ -1,0 +1,163 @@
+.dashboard { background: var(--bg); }
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.dash-profile { display: flex; align-items: center; gap: 20px; }
+
+.dash-avatar {
+  width: 72px; height: 72px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.dash-profile h1 { font-size: 26px; font-weight: 800; }
+.dash-profile p { color: var(--text-sub); font-size: 14px; margin: 4px 0; }
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.role-badge.owner { background: var(--primary-light); color: var(--primary); }
+.role-badge.student { background: #F0FDF4; color: #16A34A; }
+
+.dash-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Stats */
+.dash-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  flex: 1;
+  min-width: 120px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.stat-box span { font-size: 36px; font-weight: 800; color: var(--primary); font-family: 'Outfit', sans-serif; }
+.stat-box p { font-size: 13px; color: var(--text-sub); margin-top: 4px; }
+
+/* Tabs */
+.dash-tabs {
+  display: flex;
+  gap: 4px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+  box-shadow: var(--shadow);
+}
+
+.tab {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sub);
+  background: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.tab.active { background: var(--primary); color: white; }
+.tab:not(.active):hover { background: var(--bg); color: var(--text-main); }
+
+/* Owner PG List */
+.owner-pg-list { display: flex; flex-direction: column; gap: 16px; }
+
+.owner-pg-item {
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.2s;
+  flex-wrap: wrap;
+}
+
+.owner-pg-item:hover { box-shadow: var(--shadow); }
+
+.owner-pg-info h3 { font-size: 18px; font-weight: 700; margin: 6px 0; }
+.owner-pg-info p { font-size: 14px; color: var(--text-sub); margin-bottom: 4px; }
+
+.pg-status { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+.status-available { font-size: 13px; font-weight: 600; color: #16A34A; }
+.status-full { font-size: 13px; font-weight: 600; color: #DC2626; }
+.status-verified { font-size: 13px; font-weight: 600; color: var(--primary); }
+.status-pending { font-size: 13px; font-weight: 600; color: #F59E0B; }
+
+.owner-pg-actions { display: flex; gap: 10px; }
+
+.owner-pg-actions button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.owner-pg-actions button:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+.delete-btn:hover { background: #FEF2F2 !important; border-color: #FCA5A5 !important; color: #DC2626 !important; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.empty-state span { font-size: 56px; }
+.empty-state h3 { font-size: 22px; margin: 16px 0 8px; }
+.empty-state p { color: var(--text-sub); margin-bottom: 24px; }
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .dash-header { flex-direction: column; }
+  .dash-actions { width: 100%; }
+  .dash-actions button { flex: 1; text-align: center; }
+}
