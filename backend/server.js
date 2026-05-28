@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://pg-finder-8d2w.onrender.com',
+    'https://pg-finder-4l6c.vercel.app',
   ],
   credentials: true,
 }));
