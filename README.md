@@ -143,13 +143,14 @@ PG-Finder/
 
 ## 📸 Screenshots
 
-| Home Page | Search & Map |
-|-----------|--------------|
-| ![Home](found_page.png) | ![Search](found_page2.png) |
-
-| Login | Register |
+| search | Register & Login|
 |-------|----------|
-| ![Login](login_page.png) | ![Register](login_register_page.png) |
+| ![search](login_page.png) | ![Register](login_register_page.png) |
+
+| Home Page | Other Searches & Map |
+|-----------|--------------|
+| ![Home](found_page2.png) | ![Search](other_searches.png) |
+
 
 ---
 
